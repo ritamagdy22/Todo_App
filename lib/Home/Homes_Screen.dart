@@ -1,9 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todolist_app/settings/settings.dart';
+import 'package:todolist_app/task_List/add_task_button_sheet.dart';
+import 'package:todolist_app/task_List/task_list.dart';
 
-class HomeScreen extends StatelessWidget{
+class HomeScreen extends StatefulWidget{
 
   static String routename= "Home";
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selectedindex= 0;
+
   @override
   Widget build(BuildContext context) {
 
@@ -18,6 +29,11 @@ class HomeScreen extends StatelessWidget{
         ),
         notchMargin: 10,
         child: BottomNavigationBar(
+          currentIndex: selectedindex,
+          onTap: (index){selectedindex = index;
+            setState(() {
+
+            });},
           items: [
             BottomNavigationBarItem(
                 icon: ImageIcon(
@@ -33,12 +49,26 @@ class HomeScreen extends StatelessWidget{
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+
+          showAddBottonSheet();
+
+        },
+
         child: Icon(Icons.add, size: 30,),
-
-
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      body: tabs[selectedindex],
+    );
+  }
+  List<Widget> tabs = [TaskListApp(), Settings()];
+
+  void showAddBottonSheet() {
+
+    showModalBottomSheet(
+        context: context,
+        builder: (context){
+         return AddTaskButtonSheet();}
 
     );
   }
