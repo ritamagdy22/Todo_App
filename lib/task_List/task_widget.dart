@@ -30,7 +30,7 @@ class  TaskWidget extends StatelessWidget{
             SlidableAction(
               onPressed: (context){
 
-DeletTaskFromFireStore(task);
+       DeletTaskFromFireStore(task);
               },
               backgroundColor: Color(0xFFFE4A49),
               foregroundColor: Colors.white,
@@ -72,6 +72,7 @@ DeletTaskFromFireStore(task);
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.redAccent[100],
+
                 ),
                 child: Icon(Icons.check,size: 30,),
               ),

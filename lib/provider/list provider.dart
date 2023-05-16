@@ -1,6 +1,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:todolist_app/task_List/TaskList_Is_Done.dart';
 import 'package:todolist_app/task_List/task_list.dart';
 
 import '../firebase.dart';
@@ -50,6 +51,13 @@ notifyListeners();
 
     selecteDate = newDate;
     GetallTasksFromfirestore();
+
+  }
+
+  TaskIsDne(){
+
+
+
 
   }
 
